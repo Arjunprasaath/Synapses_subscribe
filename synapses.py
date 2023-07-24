@@ -47,9 +47,9 @@ def subscribe(a, b):
 def main(): 
 
     st.title("Synapses :link:")
-    st.markdown("Welcome to the cutting-edge world of information with Synapse :link:, the trailblazing newsletter \
+    st.markdown("Welcome to the cutting-edge world of information with Synapses :link:, the trailblazing newsletter \
                 crafted entirely by :red[artificial intelligence] :robot_face: . As the pioneering newsletter of its kind in \
-                India, Synapse promises to deliver:")
+                India, Synapses promises to deliver:")
     st.markdown("- :orange[a seamless fusion of the latest news] :newspaper:")
     st.markdown("- :blue[curated content] :mag:")
     # st.markdown("- :red[captivating insights] :star2:")

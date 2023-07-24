@@ -1,8 +1,10 @@
+# Initialisation
 import streamlit as st
 import pandas as pd
 from gspread_pandas import Spread,Client
 from google.oauth2 import service_account
 
+# Default variables
 spreadsheetname = "Synapses-data"
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 credentials = service_account.Credentials.from_service_account_info(st.secrets["gcp_service_account"], scopes = scope)
@@ -23,9 +25,11 @@ def update_sheet(spreadsheetname, dataframe):
     spread.df_to_sheet(dataframe[col], sheet = spreadsheetname,index = False)
     st.sidebar.info('Details have been updated')
 
+# Disables the input text boxes
 def disable():
     st.session_state["disabled"] = True
 
+# Updating the details submitted to the DB
 def subscribe(a, b):
     if a!= "" and b!= '':
         st.balloons()
@@ -38,6 +42,7 @@ def subscribe(a, b):
         st.success("You are subscribed!:thumbsup: You can close this tab now.")
         disable()  
 
+# Main function
 def main(): 
 
     st.title("Synapses :link:")
@@ -66,7 +71,6 @@ def main():
 
         name = st.text_input("Name", max_chars = 20, placeholder = "eg. Dave", disabled = st.session_state.disabled)
         
-        # conditional statement to check if the input is a string
         while name != '':
             if all(chr.isalpha() or chr.isspace() for chr in name):
                 break
@@ -75,14 +79,11 @@ def main():
                 break
 
         email_id = st.text_input("Email ID", max_chars = 30, placeholder = "eg. dave@gmail.com", disabled = st.session_state.disabled)
-        
         sub_button = st.form_submit_button("Subscribe!", type = "primary")
-        # sub_button = st.button("Subscribe!", type = "primary") 
 
     if sub_button:
         subscribe(name, email_id)
 
-    #sub_button = st.button("Subscribe!", on_click = subscribe, args =[name, email_id])
     st.divider()
     st.caption('By SAGI - Sustainable Artificial General Intelligence')
 

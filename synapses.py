@@ -1,3 +1,4 @@
+# Synapses subscription page.
 # Initialisation
 import streamlit as st
 import pandas as pd
@@ -79,7 +80,7 @@ def main():
                 break
 
         email_id = st.text_input("Email ID", max_chars = 30, placeholder = "eg. dave@gmail.com", disabled = st.session_state.disabled)
-        sub_button = st.form_submit_button("Subscribe!", type = "primary")
+        sub_button = st.form_submit_button("Subscribe!", type = "primary", on_click = disable)
 
     if sub_button:
         subscribe(name, email_id)

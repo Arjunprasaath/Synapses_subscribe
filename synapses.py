@@ -68,7 +68,7 @@ def main():
         
         # conditional statement to check if the input is a string
         while name != '':
-            if name.isalpha():
+            if all(chr.isalpha() or chr.isspace() for chr in name):
                 break
             else:
                 st.error('Please type in a string ', icon="🚨")

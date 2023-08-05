@@ -79,7 +79,7 @@ def main():
                 st.error('Please type in a string ', icon="🚨")
                 break
 
-        email_id = st.text_input("Email ID", max_chars = 30, placeholder = "eg. dave@gmail.com", disabled = st.session_state.disabled)
+        email_id = st.text_input("Email ID", max_chars = 40, placeholder = "eg. dave@gmail.com", disabled = st.session_state.disabled)
         sub_button = st.form_submit_button("Subscribe!", type = "primary", on_click = disable)
 
     if sub_button:
